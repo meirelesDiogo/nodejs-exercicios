@@ -26,15 +26,15 @@ function menu() {
       });
     }
     if (res === "2") {
-      if (tarefas.lenght === 0) {
+      if (tarefas.length === 0) {
         console.log("Sem Tarefas Para Mostrar");
         rl.question("Digite ENTER Para ir ao Menu", function (enter) {
           menu();
         });
       }
       let i = 0;
-      while (i < tarefas.lenght) {
-        console.log(tarefas[i]);
+      while ( i < tarefas.length) {
+        console.log(i,"Tarefa: ",tarefas[i]);
         i++;
       }
     }
