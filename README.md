@@ -28,11 +28,11 @@ O objetivo é praticar os principais conceitos da linguagem e do desenvolvimento
 
 | Nº | Exercício | Status |
 |:--:|-----------|:------:|
-| 01 | Olá, Mundo | ⏳ |
-| 02 | Calculadora | ⏳ |
-| 03 | Verificador de Idade | ⏳ |
-| 04 | Tabuada | ⏳ |
-| 05 | Contador | ⏳ |
+| 01 | Olá, Mundo | ✅ |
+| 02 | Calculadora | ✅ |
+| 03 | Verificador de Idade | ✅ |
+| 04 | Tabuada |✅ |
+| 05 | Contador | ✅ |
 | 06 | Arrays | ⏳ |
 | 07 | Objetos | ⏳ |
 | 08 | Leitura de Arquivos | ⏳ |
