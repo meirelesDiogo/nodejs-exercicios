@@ -33,16 +33,15 @@ O objetivo é praticar os principais conceitos da linguagem e do desenvolvimento
 | 03 | Verificador de Idade | ✅ |
 | 04 | Tabuada |✅ |
 | 05 | Contador | ✅ |
-| 06 | Arrays | ⏳ |
-| 07 | Objetos | ⏳ |
-| 08 | Leitura de Arquivos | ⏳ |
-| 09 | Escrita de Arquivos | ⏳ |
-| 10 | Servidor HTTP | ⏳ |
-| 11 | Rotas | ⏳ |
-| 12 | API de Usuários | ⏳ |
-| 13 | Requisições POST | ⏳ |
-| 14 | CRUD em Memória | ⏳ |
-| 15 | CRUD com Prisma + PostgreSQL | ⏳ |
+| 06 | Arrays | ✅ |
+| 07 | Objetos | ✅ |
+| 08 | Leitura e Escrita de Arquivos | ✅ |
+| 09 | Servidor HTTP | ⏳ |
+| 10 | Rotas | ⏳ |
+| 11 | API de Usuários | ⏳ |
+| 12 | Requisições POST | ⏳ |
+| 13 | CRUD em Memória | ⏳ |
+| 14 | CRUD com Prisma + PostgreSQL | ⏳ |
 
 </div>
 
