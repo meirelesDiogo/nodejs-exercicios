@@ -37,7 +37,7 @@ O objetivo é praticar os principais conceitos da linguagem e do desenvolvimento
 | 07 | Objetos | ✅ |
 | 08 | Leitura e Escrita de Arquivos | ✅ |
 | 09 | Servidor HTTP | ✅ |
-| 10 | Rotas | ⏳ |
+| 10 | Rotas | ✅ |
 | 11 | API de Usuários | ⏳ |
 | 12 | Requisições POST | ⏳ |
 | 13 | CRUD em Memória | ⏳ |
