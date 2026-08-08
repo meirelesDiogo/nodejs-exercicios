@@ -14,38 +14,40 @@ const fs = require("fs");
 const fss = require("fs").promises;
 
 const usuario = {};
+menu();
+function menu() {
+  console.clear();
+  console.log("\n╔═════════════════════════════════════════╗");
+  console.log("║     👤 CADASTRO DE PESSOA COM JSON      ║");
+  console.log("╚═════════════════════════════════════════╝\n");
 
-console.log("\n╔═════════════════════════════════════════╗");
-console.log("║     👤 CADASTRO DE PESSOA COM JSON      ║");
-console.log("╚═════════════════════════════════════════╝\n");
-
-console.log("📝 Digite Seu Nome:");
-console.log("─────────────────────────────────────────");
-
-rl.question("➜ ", function (nome) {
-  usuario.Nome = nome;
-
-  console.log("\n📧 Digite Seu Email:");
+  console.log("📝 Digite Seu Nome:");
   console.log("─────────────────────────────────────────");
 
-  rl.question("➜ ", function (email) {
-    usuario.email = email;
+  rl.question("➜ ", function (nome) {
+    usuario.Nome = nome;
 
-    console.log("\n🌎 Digite Sua Cidade:");
+    console.log("\n📧 Digite Seu Email:");
     console.log("─────────────────────────────────────────");
 
-    rl.question("➜ ", function (cidade) {
-      usuario.Cidade = cidade;
+    rl.question("➜ ", function (email) {
+      usuario.email = email;
 
-      console.log("\n╔═════════════════════════════════════════╗");
-      console.log("║       ✅ ITENS CADASTRADOS COM SUCESSO  ║");
-      console.log("╚═════════════════════════════════════════╝");
+      console.log("\n🌎 Digite Sua Cidade:");
+      console.log("─────────────────────────────────────────");
 
-      Arquivo(usuario);
+      rl.question("➜ ", function (cidade) {
+        usuario.Cidade = cidade;
+
+        console.log("\n╔═════════════════════════════════════════╗");
+        console.log("║       ✅ ITENS CADASTRADOS COM SUCESSO  ║");
+        console.log("╚═════════════════════════════════════════╝");
+
+        Arquivo(usuario);
+      });
     });
   });
-});
-
+}
 function Arquivo(usuario) {
   fss
     .writeFile("data.json", JSON.stringify(usuario, null, 2), "utf8")
@@ -58,15 +60,24 @@ function Arquivo(usuario) {
         }
 
         if (number === "2") {
-          rl.close();
+          menu();
         }
       });
     });
 }
 
 function Conteudo() {
-  console.log("Conteudo Do Arquivo Sem Formatação ");
+  console.log("Conteudo Do Arquivo ");
   fs.readFile("data.json", "utf8", (error, data) => {
-    console.log(data);
+    const usuario = JSON.parse(data); // Transforma o JSON EM OBJEto DNV
+    console.log("Nome: ", usuario.Nome);
+    console.log("Email: ", usuario.email);
+    console.log("Cidade: ", usuario.Cidade);
+    console.log();
+    console.log();
+    console.log("Aperte ENTER PARA Sair");
+    rl.question("=> ", function (enter) {
+      menu();
+    });
   });
 }
