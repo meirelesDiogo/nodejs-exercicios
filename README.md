@@ -78,14 +78,13 @@ nodejs-exercicios/
 ├── 05-contador/
 ├── 06-arrays/
 ├── 07-objetos/
-├── 08-ler-arquivos/
-├── 09-escrever-arquivos/
-├── 10-servidor-http/
-├── 11-rotas/
-├── 12-api-usuarios/
-├── 13-post/
-├── 14-crud-memoria/
-├── 15-crud-prisma/
+├── 08-leitura-arquivos/
+├── 09-servidor-http/
+├── 10-rotas/
+├── 11-api-usuarios/
+├── 12-post/
+├── 13-crud-memoria/
+├── 14-crud-prisma/
 └── README.md
 ```
 
