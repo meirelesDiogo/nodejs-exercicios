@@ -39,7 +39,7 @@ O objetivo é praticar os principais conceitos da linguagem e do desenvolvimento
 | 09 | Servidor HTTP | ✅ |
 | 10 | Rotas | ✅ |
 | 11 | API de Usuários | ✅ |
-| 12 | Requisições POST | ⏳ |
+| 12 | Requisições POST | ✅ |
 | 13 | CRUD em Memória | ⏳ |
 | 14 | CRUD com Prisma + PostgreSQL | ⏳ |
 
