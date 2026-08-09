@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    Nome:<input type="text" id="name" required /> Email:
+    <input type="email" id="email" required /> Cidade:
+    <input type="text" id="city" required />
+    <input type="submit" value="cadastrar" id="cadastrar" />
+
+    <script>
+      const botao = document.querySelector("#cadastrar");
+      botao.addEventListener("click", async () => {
+        alert("Cadastrado com Sucesso");
+        const nome = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const cidade = document.getElementById("city").value;
+
+        const usuario = {
+          nome: nome,
+          email: email,
+          cidade: cidade,
+        };
+
+        const resposta = await fetch("http://localhost:3000/usuarios", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(usuario), // Json stringfy transforma objeto em json
+        });
+        const resultado = await resposta.json();
+        console.log(resultado);
+      });
+    </script>
+  </body>
+</html>
