@@ -35,7 +35,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
       res.end(arquivo);
     });
-  } else if (url === "/usuarios") {
+  } else if (url === "/usuarios" && method === "POST") {
     let corpo = "";
     req.on("data", (pedaco) => {
       corpo += pedaco;
@@ -45,6 +45,12 @@ const server = http.createServer((req, res) => {
       dados.push(object);
       console.log(dados);
     });
+  } 
+  else if (url === "/usuarios/" && method === "GET") {
+    const partes = url.split("/"); //separa oq vem dps da /
+    const id = parseInt(partes[2]); // pega o 3 elemento do array q é o id(se tiver)
+    console.log(id);
+    res.end();
   }
 });
 
