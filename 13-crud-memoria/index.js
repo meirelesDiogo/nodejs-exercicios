@@ -35,6 +35,10 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
       res.end(arquivo);
     });
+  } else if (url === "/usuarios" && method === "GET") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+
+    res.end(JSON.stringify(dados));
   } else if (url === "/usuarios" && method === "POST") {
     let corpo = "";
     req.on("data", (pedaco) => {
