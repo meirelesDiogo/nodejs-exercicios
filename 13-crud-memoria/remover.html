@@ -1,11 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remover</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0d1117;
+        --ink: #e6e9ef;
+        --ink-soft: #8b96a8;
+        --teal: #4c7ef0;
+        --teal-dark: #3a63c4;
+        --amber: #e2a63d;
+        --danger: #e2543d;
+        --card: #161b23;
+        --line: #262d3a;
+        --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+        --sans: "Sora", "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 15% 10%, rgba(226, 84, 61, 0.10), transparent 45%),
+          radial-gradient(circle at 85% 90%, rgba(140, 150, 168, 0.08), transparent 40%),
+          var(--bg);
+        font-family: var(--sans);
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 64px 20px;
+      }
+
+      main {
+        width: 100%;
+        max-width: 520px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .panel {
+        width: 100%;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        box-shadow: 0 20px 40px -24px rgba(22, 35, 58, 0.35);
+        overflow: hidden;
+      }
+
+      .panel__request {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 20px;
+        background: #0a0d12;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .method {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: #0a0d12;
+        background: var(--danger);
+        padding: 4px 10px;
+        border-radius: 4px;
+      }
+
+      .endpoint {
+        font-family: var(--mono);
+        font-size: 0.85rem;
+        color: #a9b4c9;
+        letter-spacing: 0.01em;
+      }
+
+      .panel__body {
+        padding: 30px 28px 32px;
+        text-align: center;
+      }
+
+      .panel__body h1 {
+        margin: 0 0 10px;
+        font-family: var(--sans);
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.4;
+        color: var(--ink);
+      }
+
+      .panel__body p {
+        margin: 0;
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+
+      code {
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        color: var(--amber);
+        background: #0d1117;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 2px 6px;
+      }
+
+      @media (max-width: 480px) {
+        .panel__body {
+          padding: 24px 20px 28px;
+        }
+        .panel__body h1 {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
 </head>
 <body>
-    <h1>Para Remover Alguem Utilize a rota /remover/ id q quer remover</h1>
+    <main>
+      <div class="panel">
+        <div class="panel__request">
+          <span class="method">DELETE</span>
+          <span class="endpoint">/remover/:id</span>
+        </div>
+        <div class="panel__body">
+          <h1>Para remover um usuário</h1>
+          <p>Utilize a rota <code>/remover/&lt;id&gt;</code>, informando o id de quem você quer remover.</p>
+        </div>
+      </div>
+    </main>
 </body>
 </html>

@@ -219,6 +219,41 @@
           padding: 20px 18px 24px;
         }
       }
+
+      .nav {
+        display: flex;
+        gap: 10px;
+        margin-top: 22px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--ink-soft);
+        text-decoration: none;
+        border: 1px solid var(--line);
+        background: var(--card);
+        padding: 7px 12px;
+        border-radius: 6px;
+        transition:
+          border-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .nav a:hover {
+        color: var(--ink);
+        border-color: var(--teal);
+      }
+
+      .nav a:focus-visible {
+        outline: 2px solid var(--amber);
+        outline-offset: 2px;
+      }
     </style>
   </head>
   <body>
@@ -263,6 +298,11 @@
       </div>
 
       <p class="footnote">servidor: <span>http://localhost:3000</span></p>
+
+      <nav class="nav">
+        <a href="/alterar">GET /alterar</a>
+        <a href="/remover">GET /remover</a>
+      </nav>
     </main>
 
     <script>
