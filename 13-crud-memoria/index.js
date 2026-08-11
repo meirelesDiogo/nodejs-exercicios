@@ -128,7 +128,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
       res.end(arquivo);
     });
-  } else if (startsWith("/remover/") && method === "GET") {
+  } else if (url.startsWith("/remover/") && method === "GET") {
     const partes = url.split("/");
     const id = parseInt(partes[2]);
     fs.readFile("reqDelete.html", "utf8", (erro, arquivo) => {
@@ -136,10 +136,19 @@ const server = http.createServer((req, res) => {
         console.log("Erro ao Acessar ReqDelete HTML ", erro);
         return;
       }
+      let htmlModificado = arquivo.replace("{{id}}", id); // coloca o id de quem ele quer apagar  la dentro do input no html
       res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
-      res.end(arquivo);
+      res.end(htmlModificado);
     });
-  } else if (startsWith("/remover/") && method === "DELETE") {
+  } else if (url.startsWith("/remover/") && method === "DELETE") {
+    const partes = url.split("/");
+    const id = parseInt(partes[2]);
+    console.log("DELETANDO Usuario com ID:", id, "...");
+    const ListaUsuarios = dados.filter((u) => u.id !== id); //filtra pelo id e deixa todos os outros q n tiverem o id que eu quero
+    dados.splice(0, dados.length, ...ListaUsuarios); // pega e substitui o array  de objetos todo pra lista atualizada
+    console.log(dados);
+
+    res.end();
   }
 });
 
