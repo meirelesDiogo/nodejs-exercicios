@@ -15,6 +15,7 @@ Servidor sobe em: `http://localhost:3000`
 | Método | Rota            | Descrição                                                       |
 |--------|-----------------|------------------------------------------------------------------|
 | GET    | `/`             | Página inicial com o formulário de cadastro (`index.html`)       |
+| GET    | `/usuarios`     | Lista todos os usuários cadastrados                              |
 | POST   | `/usuarios`     | Cadastra um novo usuário                                         |
 | GET    | `/usuarios/:id` | Busca um usuário específico pelo `id`                            |
 | GET    | `/alterar`      | Página informativa sobre como alterar um usuário (`put.html`)    |
@@ -28,6 +29,9 @@ Servidor sobe em: `http://localhost:3000`
 
 #### `GET /`
 Retorna `index.html`, com o formulário para cadastrar um novo usuário (nome, email, cidade). O próprio formulário dispara a requisição `POST /usuarios` via `fetch`.
+
+#### `GET /usuarios`
+Retorna, em JSON, a lista com todos os usuários cadastrados em memória.
 
 #### `POST /usuarios`
 Recebe um JSON no corpo da requisição:
