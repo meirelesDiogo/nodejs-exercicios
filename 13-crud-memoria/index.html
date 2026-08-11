@@ -256,7 +256,7 @@
             <label for="city">cidade</label>
             <input type="text" id="city" placeholder="Sua cidade" required />
           </div>
-          <input type="hidden" value="4" id="id" />
+          
 
           <input type="submit" value="Enviar Requisição" id="cadastrar" />
         </div>
@@ -272,10 +272,8 @@
         const nome = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const cidade = document.getElementById("city").value;
-        const id = document.getElementById("id").value;
-        const number = Number(id)
+        
         const usuario = {
-          id:number,
           nome: nome,
           email: email,
           cidade: cidade,
