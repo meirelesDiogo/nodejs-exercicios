@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novo Cadastro</title>
+  </head>
+  <body>
+    <h2>Cadastro De Usuario</h2>
+
+    <form method="post">
+      Nome: <input type="text" id="nome" /> Cidade:
+      <input type="text" id="cidade" /> Email: <input type="email" id="email" />
+
+      <input type="button" id="cadastrar" value="Cadastrar" />
+    </form>
+
+    <script>
+      const botao = document.getElementById("cadastrar");
+
+      botao.addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        const nome = document.getElementById("nome").value;
+        const cidade = document.getElementById("cidade").value;
+        const email = document.getElementById("email").value;
+
+        const usuario = {
+          nome: nome,
+          cidade: cidade,
+          email: email,
+        };
+
+        try {
+          const resposta = await fetch("http://localhost:3000/pessoas", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(usuario),
+          });
+
+          if (resposta.ok) {
+            alert("Usuário Cadastrado Com Sucesso");
+            window.location.href = "/pessoas";
+          } else {
+            alert("Erro ao cadastrar usuário no servidor.");
+          }
+        } catch (erro) {
+          console.error(erro);
+          alert(
+            "Não foi possível conectar ao servidor. O backend está rodando?",
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
