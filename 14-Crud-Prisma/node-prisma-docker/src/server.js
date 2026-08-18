@@ -13,9 +13,7 @@ const server = http.createServer(async (req, res) => {
     const users = await prisma.pessoa.findMany(); // Pega tudo da tabela Pessoa
 
     res.end(JSON.stringify(users));
-  } 
-  
-  else if (url.startsWith("/pessoas/") && method === "GET") {
+  } else if (url.startsWith("/pessoas/") && method === "GET") {
     //Pega e mostra a pessoa pelo id
 
     const partes = url.split("/");
@@ -31,7 +29,11 @@ const server = http.createServer(async (req, res) => {
       console.log("Deu bom pae");
       res.end;
     } else {
-      console.log("Deu ruim pae");
+      res.setHeader("Content-Type", "text/html;charset=utf-8");
+
+      res.write(
+        "<script>alert('Não foi encontrado Usuario com esse ID')</script>",
+      );
       res.end();
     }
   }
