@@ -11,7 +11,8 @@ Praticar:
 - Roteamento manual de requisições (método + URL);
 - Integração com banco de dados relacional via Prisma ORM;
 - Uso de Docker/Docker Compose para subir um ambiente de banco de dados local;
-- Operações CRUD completas (Create, Read, Update, Delete).
+- Operações CRUD completas (Create, Read, Update, Delete);
+- Renderização de uma página HTML simples (formulário) a partir do próprio servidor Node.
 
 ## 🛠️ Tecnologias utilizadas
 
@@ -97,15 +98,20 @@ O servidor sobe em `http://localhost:3000`.
 
 ## 📡 Rotas disponíveis
 
-| Método | Rota            | Descrição                  |
-|--------|-----------------|-----------------------------|
-| GET    | `/pessoas`      | Lista todas as pessoas      |
-| GET    | `/pessoas/:id`  | Busca uma pessoa por ID     |
-| POST   | `/pessoas`      | Cria uma nova pessoa        |
-| PUT    | `/pessoas/:id`  | Atualiza uma pessoa         |
-| DELETE | `/pessoas/:id`  | Remove uma pessoa           |
+| Método | Rota            | Descrição                                                      |
+|--------|-----------------|------------------------------------------------------------------|
+| GET    | `/cadastro`      | Exibe um formulário HTML para cadastro de pessoas                |
+| GET    | `/pessoas`      | Lista todas as pessoas                                            |
+| GET    | `/pessoas/:id`  | Busca uma pessoa por ID                                           |
+| POST   | `/pessoas`      | Cria uma nova pessoa (também usada pelo formulário de `/cadastro`)|
+| PUT    | `/pessoas/:id`  | Atualiza uma pessoa                                               |
+| DELETE | `/pessoas/:id`  | Remove uma pessoa                                                 |
 
-### Exemplo de corpo para criação (POST)
+### 📝 Página de cadastro (`/cadastro`)
+
+Acessando `http://localhost:3000/cadastro` no navegador, o servidor retorna uma página HTML com um formulário simples (nome, cidade e email). Ao ser enviado, o formulário faz uma requisição `POST` para a rota `/pessoas`, criando um novo registro no banco de dados.
+
+### Exemplo de corpo para criação (POST `/pessoas`)
 
 ```json
 {
@@ -119,6 +125,7 @@ O servidor sobe em `http://localhost:3000`.
 
 - Como configurar o Prisma ORM 7, incluindo as mudanças de configuração (uso do `prisma.config.ts` e driver adapters);
 - Como montar rotas manualmente com o módulo `http` nativo do Node.js, sem depender do Express;
+- Como servir uma página HTML (formulário) diretamente pelo servidor Node, sem um motor de templates;
 - Como subir e gerenciar um banco PostgreSQL local usando Docker Compose.
 
 ---
