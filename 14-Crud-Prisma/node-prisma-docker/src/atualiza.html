@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atualizar Usuario</title>
+  </head>
+  <body>
+    <form>
+      <input type="hidden" id="id" value="{{id}}" />
+      Nome:<input type="text" id="nome" value="{{nome}}" /> Cidade:
+      <input type="text" id="cidade" value="{{cidade}}" /> email:<input
+        type="text"
+        id="email"
+        value="{{email}}"
+      />
+
+      <input type="button" id="atualiza" value="Atualizar" />
+    </form>
+
+    <script>
+      const botao = document.getElementById("atualiza");
+      botao.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const id = document.getElementById("id").value;
+        const nome = document.getElementById("nome").value;
+        const cidade = document.getElementById("cidade").value;
+        const email = document.getElementById("email").value;
+
+        const usuario = {
+          id: id,
+          nome: nome,
+          cidade: cidade,
+          email: email,
+        };
+
+        const resposta = await fetch("http://localhost:3000/pessoas", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(usuario),
+        });
+        if (resposta.ok) {
+          return alert("Usuario Alterado Com Sucesso");
+        } else {
+          return alert("Usuario nao Foi Alterado. Tente Novamente");
+        }
+      });
+    </script>
+  </body>
+</html>
