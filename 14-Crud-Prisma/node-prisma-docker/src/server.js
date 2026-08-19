@@ -135,13 +135,20 @@ const server = http.createServer(async (req, res) => {
         res.end();
       }
     });
-  } else if (url.startsWith("/deletar/" && method === "GET")) {
+  } else if (url.startsWith("/deletar/") && method === "GET") {
     const partes = url.split("/");
     const id = parseInt(partes[2]);
-    res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
-    res.write("Você será direcionado para a pagina de DELETE");
+    fs.readFile("src/delete.html", "utf-8", async (erro, arquivo) => {
+      if (erro) {
+        return erro;
+      }
+      res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
+
+      const HtmlModificado = arquivo.replace("{{id}}", id);
+      res.end(HtmlModificado);
+    });
+  } else if (url === "/pessoas" && method === "DELETE") {
     
-    res.end();
   } else {
     // 3.  Resposta padrão para qualquer outra rota
     res.writeHead(404, { "Content-Type": "text/plain" });
