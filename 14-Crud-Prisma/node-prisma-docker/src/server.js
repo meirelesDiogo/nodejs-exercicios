@@ -148,7 +148,30 @@ const server = http.createServer(async (req, res) => {
       res.end(HtmlModificado);
     });
   } else if (url === "/pessoas" && method === "DELETE") {
-    
+    let corpo = "";
+    req.on("data", (pedaco) => {
+      corpo += pedaco;
+    });
+    req.on("end", async () => {
+      try {
+        const obj = JSON.parse(corpo); //transforma em objeto
+
+        const apaga = await prisma.pessoa.delete({
+          //apaga o usuario no prisma
+          where: {
+            id: Number(obj.id),
+          },
+        });
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ mensagem: "Deu tudo Certo" }));
+      } catch (erro) {
+        // Trata erros
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(
+          JSON.stringify({ erro: "Erro ao deletar ou ID não encontrado" }),
+        );
+      }
+    });
   } else {
     // 3.  Resposta padrão para qualquer outra rota
     res.writeHead(404, { "Content-Type": "text/plain" });

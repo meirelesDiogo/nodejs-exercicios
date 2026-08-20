@@ -28,6 +28,11 @@
           },
           body: JSON.stringify(usuario),
         });
+        if (resposta.ok) {
+          alert("Usuario Deletado com Sucesso");
+        } else {
+          alert("Não foi Possivel Deletar.Usuario Com ID não Encontrado");
+        }
       });
     </script>
   </body>
