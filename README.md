@@ -41,7 +41,7 @@ O objetivo é praticar os principais conceitos da linguagem e do desenvolvimento
 | 11 | API de Usuários | ✅ |
 | 12 | Requisições POST | ✅ |
 | 13 | CRUD em Memória | ✅ |
-| 14 | CRUD com Prisma + PostgreSQL | ⏳ |
+| 14 | CRUD com Prisma + PostgreSQL | ✅ |
 
 </div>
 
